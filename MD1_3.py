@@ -13,7 +13,7 @@ def find_gcd(a:int, b:int):
     return find_gcd(b % a, a)
 
 def verify_coprimeness(prime_arr: list):
-    if len(set(prime_arr)) == len(prime_arr):    #No duplicates
+    if len(set(prime_arr)) == len(prime_arr):
         for i in prime_arr:
             for j in prime_arr:
                 if i != j:
@@ -44,14 +44,9 @@ if __name__ == "__main__":
     else:
         print("Input:", k, m_list, a_list)
         if verify_coprimeness(m_list):
-            # There must be a better way, but let's brute force this shit
-            # a must be smaller than prod(m_list)
             for pot_a in range(prod(m_list)):
                 modulo_verified = 0
                 for m_idx, a in enumerate(a_list):
-                    # mod_1 = pot_a % m_list[m_idx]
-                    # mod_2 = a % m_list[m_idx]
-                    # print("a:{} (mod {}) = {}, a:{} (mod {}) = ".format(pot_a, m_list[m_idx], mod_1,  a, m_list[m_idx]), mod_2)
                     if pot_a % m_list[m_idx] != a % m_list[m_idx]: break
                     else: modulo_verified += 1
 
